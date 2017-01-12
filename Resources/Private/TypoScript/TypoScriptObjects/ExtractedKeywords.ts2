@@ -18,7 +18,6 @@ prototype(Shel.SeoView:ExtractedKeywords) < prototype(TYPO3.TypoScript:Tag) {
                     }
                 }
 
-#                        collection = ${Search.query(documentNode).nodeType('TYPO3.Neos:Content').exactMatch('__closestDocumentNode', documentNode.identifier).limit(0).aggregation("keywords", this.aggregationDefinition).execute().getAggregations().keywords.buckets}
                 collection = ${Search.query(documentNode).nodeType('TYPO3.Neos:Document').limit(0).aggregation("keywords", this.aggregationDefinition).execute().getAggregations().keywords.buckets}
                 itemRenderer = TYPO3.TypoScript:Tag {
                     tagName = 'tr'

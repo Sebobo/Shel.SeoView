@@ -1,4 +1,4 @@
-prototype(Shel.SeoView:SeoView) < prototype(TYPO3.Neos:Page) {
+prototype(Shel.SeoView:SeoView) < prototype(Neos.Neos:Page) {
     head {
         stylesheets >
         stylesheets = Neos.Fusion:Array {
@@ -8,7 +8,7 @@ prototype(Shel.SeoView:SeoView) < prototype(TYPO3.Neos:Page) {
                     rel = 'stylesheet'
                     type = 'text/css'
                     href = Neos.Fusion:ResourceUri {
-                        path = 'resource://TYPO3.Neos/Public/Styles/RawContentMode.css'
+                        path = 'resource://Neos.Neos/Public/Styles/RawContentMode.css'
                     }
                 }
             }

@@ -18,7 +18,7 @@ prototype(Shel.SeoView:ExtractedKeywords) < prototype(Neos.Fusion:Tag) {
                     }
                 }
 
-                collection = ${Search.query(documentNode).nodeType('TYPO3.Neos:Document').limit(0).aggregation("keywords", this.aggregationDefinition).execute().getAggregations().keywords.buckets}
+                collection = ${Search.query(documentNode).nodeType('Neos.Neos:Document').limit(0).aggregation("keywords", this.aggregationDefinition).execute().getAggregations().keywords.buckets}
                 itemRenderer = Neos.Fusion:Tag {
                     tagName = 'tr'
                     content = ${'<td>' + item.key + '</td><td>' + item.doc_count + '</td>'}

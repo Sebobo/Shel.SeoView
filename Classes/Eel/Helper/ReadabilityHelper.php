@@ -8,7 +8,7 @@ namespace Shel\SeoView\Eel\Helper;
  * @author Sebastian Helzle <sebastian@helzle.it>                         *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 use TYPO3\Eel\ProtectedContextAwareInterface;
 
 /**

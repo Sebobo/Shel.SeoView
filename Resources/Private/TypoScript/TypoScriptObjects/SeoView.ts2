@@ -1,13 +1,13 @@
 prototype(Shel.SeoView:SeoView) < prototype(TYPO3.Neos:Page) {
     head {
         stylesheets >
-        stylesheets = TYPO3.TypoScript:Array {
-            seoView = TYPO3.TypoScript:Tag {
+        stylesheets = Neos.Fusion:Array {
+            seoView = Neos.Fusion:Tag {
                 tagName = 'link'
                 attributes {
                     rel = 'stylesheet'
                     type = 'text/css'
-                    href = TYPO3.TypoScript:ResourceUri {
+                    href = Neos.Fusion:ResourceUri {
                         path = 'resource://TYPO3.Neos/Public/Styles/RawContentMode.css'
                     }
                 }
@@ -21,7 +21,7 @@ prototype(Shel.SeoView:SeoView) < prototype(TYPO3.Neos:Page) {
         templatePath = 'resource://Shel.SeoView/Private/Templates/SeoView.html'
         sectionName = 'body'
 
-        parts = TYPO3.TypoScript:Array {
+        parts = Neos.Fusion:Array {
             metaKeywords = Shel.SeoView:MetaKeywords
 
             analyzedKeywords = Shel.SeoView:ExtractedKeywords

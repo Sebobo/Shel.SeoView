@@ -1,14 +1,14 @@
-prototype(Shel.SeoView:MetaKeywords) < prototype(TYPO3.TypoScript:Tag) {
+prototype(Shel.SeoView:MetaKeywords) < prototype(Neos.Fusion:Tag) {
     tagName = 'section'
     attributes.class = 'seo-view__meta-keywords'
     
-    content = TYPO3.TypoScript:Array {
-        header = TYPO3.TypoScript:Tag {
+    content = Neos.Fusion:Array {
+        header = Neos.Fusion:Tag {
             tagName = 'h2'
             content = 'Meta keywords'
         }
 
-        content = TYPO3.TypoScript:Tag {
+        content = Neos.Fusion:Tag {
             tagName = 'p'
             keywords = ${q(node).property('metaKeywords')}
             content = ${String.isBlank(this.keywords) ? 'No keywords defined' : this.keywords}

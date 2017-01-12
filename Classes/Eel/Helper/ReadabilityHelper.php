@@ -9,7 +9,7 @@ namespace Shel\SeoView\Eel\Helper;
  *                                                                        */
 
 use Neos\Flow\Annotations as Flow;
-use TYPO3\Eel\ProtectedContextAwareInterface;
+use Neos\Eel\ProtectedContextAwareInterface;
 
 /**
  * String helpers for Eel contexts

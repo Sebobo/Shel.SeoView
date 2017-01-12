@@ -14,6 +14,6 @@ Neos:
           Shel.SeoView:
             - Main
             - 'NodeTypes/*'
-    typoScript:
+    fusion:
       autoInclude:
         Shel.SeoView: true

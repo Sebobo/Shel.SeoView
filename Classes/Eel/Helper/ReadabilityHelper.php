@@ -8,27 +8,60 @@ namespace Shel\SeoView\Eel\Helper;
  * @author Sebastian Helzle <sebastian@helzle.it>                         *
  *                                                                        */
 
+use DaveChild\TextStatistics\Text;
 use Neos\Flow\Annotations as Flow;
 use Neos\Eel\ProtectedContextAwareInterface;
 
 /**
- * String helpers for Eel contexts
+ * Readability helper for strings
  *
  * @Flow\Proxy(false)
  */
 class ReadabilityHelper implements ProtectedContextAwareInterface
 {
     /**
-     * Get length of a text
+     * Get character count of a text
      *
      * @param string $text The input text
      * @return integer Length of the text
      */
-    public function textLength($text)
+    public function characterCount($text)
     {
-        return Text::textLength($text);
+        return Text::characterCount($text);
     }
 
+    /**
+     * Get number of words in a text
+     *
+     * @param string $text The input text
+     * @return integer Length of the text
+     */
+    public function wordCount($text)
+    {
+        return Text::wordCount($text);
+    }
+
+    /**
+     * Get number of sentences in a text
+     *
+     * @param string $text The input text
+     * @return integer Length of the text
+     */
+    public function sentenceCount($text)
+    {
+        return Text::sentenceCount($text);
+    }
+
+    /**
+     * Get average words per sentence in a text
+     *
+     * @param string $text The input text
+     * @return integer Length of the text
+     */
+    public function averageWordsPerSentence($text)
+    {
+        return Text::averageWordsPerSentence($text);
+    }
 
     /**
      * All methods are considered safe

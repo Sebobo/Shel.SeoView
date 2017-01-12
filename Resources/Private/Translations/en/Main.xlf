@@ -9,6 +9,22 @@
             <trans-unit id="sections.extractedKeywords.title">
                 <source>Extracted Keywords</source>
             </trans-unit>
+
+            <trans-unit id="sections.contentStatistics.title">
+                <source>Content statistics</source>
+            </trans-unit>
+            <trans-unit id="sections.contentStatistics.characterCount">
+                <source>Characters</source>
+            </trans-unit>
+            <trans-unit id="sections.contentStatistics.wordCount">
+                <source>Words</source>
+            </trans-unit>
+            <trans-unit id="sections.contentStatistics.sentenceCount">
+                <source>Sentences</source>
+            </trans-unit>
+            <trans-unit id="sections.contentStatistics.averageWordsPerSentence">
+                <source>Average words per sentence</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

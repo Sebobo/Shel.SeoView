@@ -1,0 +1,80 @@
+prototype(Shel.SeoView:ContentStatistics) < prototype(Neos.Fusion:Tag) {
+    tagName = 'section'
+    attributes.class = 'seo-view__text-analysis'
+
+    @context.pageText = Neos.Fusion:Collection {
+        collection = ${q(documentNode).children('[instanceof Neos.Neos:ContentCollection]').find('[instanceof Neos.Neos:Content]').get()}
+
+        itemRenderer = Neos.Fusion:Value {
+            value = ${q(item).property('title') + ' ' + q(item).property('text') + ' '}
+        }
+    }
+
+    content = Neos.Fusion:Array {
+        title = Neos.Fusion:Tag {
+            tagName = 'h2'
+            content = ${I18n.translate('Shel.SeoView:Main:sections.contentStatistics.title')}
+        }
+
+        statistics = Neos.Fusion:Tag {
+            tagName = 'table'
+            content = Neos.Fusion:Array {
+                characterCount = Neos.Fusion:Tag {
+                    tagName = 'tr'
+                    content = Neos.Fusion:Array {
+                        key = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${I18n.translate('Shel.SeoView:Main:sections.contentStatistics.characterCount')}
+                        }
+                        value = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${Readability.characterCount(pageText)}
+                        }
+                    }
+                }
+
+                wordCount = Neos.Fusion:Tag {
+                    tagName = 'tr'
+                    content = Neos.Fusion:Array {
+                        key = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${I18n.translate('Shel.SeoView:Main:sections.contentStatistics.wordCount')}
+                        }
+                        value = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${Readability.wordCount(pageText)}
+                        }
+                    }
+                }
+
+                sentenceCount = Neos.Fusion:Tag {
+                    tagName = 'tr'
+                    content = Neos.Fusion:Array {
+                        key = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${I18n.translate('Shel.SeoView:Main:sections.contentStatistics.sentenceCount')}
+                        }
+                        value = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${Readability.sentenceCount(pageText)}
+                        }
+                    }
+                }
+
+                averageWordsPerSentence = Neos.Fusion:Tag {
+                    tagName = 'tr'
+                    content = Neos.Fusion:Array {
+                        key = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${I18n.translate('Shel.SeoView:Main:sections.contentStatistics.averageWordsPerSentence')}
+                        }
+                        value = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${Math.round(Readability.averageWordsPerSentence(pageText), 2)}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

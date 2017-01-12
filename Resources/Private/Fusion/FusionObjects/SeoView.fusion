@@ -24,7 +24,9 @@ prototype(Shel.SeoView:SeoView) < prototype(Neos.Neos:Page) {
         parts = Neos.Fusion:Array {
             metaKeywords = Shel.SeoView:MetaKeywords
 
-            analyzedKeywords = Shel.SeoView:ExtractedKeywords
+#            analyzedKeywords = Shel.SeoView:ExtractedKeywords
+
+            textAnalysis = Shel.SeoView:ContentStatistics
         }
     }
 }

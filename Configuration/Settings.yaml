@@ -6,7 +6,7 @@ Neos:
         seoView:
           isEditingMode: true
           isPreviewMode: false
-          typoScriptRenderingPath: seoView
+          fusionRenderingPath: seoView
           title: 'Shel.SeoView:Main:editPreviewModes.seoView'
           position: 'after inPlace'
       translation:
@@ -17,3 +17,7 @@ Neos:
     fusion:
       autoInclude:
         Shel.SeoView: true
+
+  Fusion:
+    defaultContext:
+      Readability: 'Shel\SeoView\Eel\Helper\ReadabilityHelper'

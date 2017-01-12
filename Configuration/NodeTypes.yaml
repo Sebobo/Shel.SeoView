@@ -1,0 +1,16 @@
+
+'TYPO3.Neos:Node':
+  properties:
+    '__closestDocumentNode':
+      search:
+        elasticSearchMapping:
+          type: string
+          index: not_analyzed
+          include_in_all: false
+        indexing: '${q(node).closest("[instanceof TYPO3.Neos:Document]").get(0).identifier}'
+    '__keywords':
+      search:
+        elasticSearchMapping:
+          type: string
+          include_in_all: false
+        indexing: '${q(node).property("text")}'

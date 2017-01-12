@@ -1,0 +1,30 @@
+prototype(Shel.SeoView:SeoView) < prototype(TYPO3.Neos:Page) {
+    head {
+        stylesheets >
+        stylesheets = TYPO3.TypoScript:Array {
+            seoView = TYPO3.TypoScript:Tag {
+                tagName = 'link'
+                attributes {
+                    rel = 'stylesheet'
+                    type = 'text/css'
+                    href = TYPO3.TypoScript:ResourceUri {
+                        path = 'resource://TYPO3.Neos/Public/Styles/RawContentMode.css'
+                    }
+                }
+            }
+        }
+    }
+
+    bodyTag.attributes.class = 'neos-seo-view-mode'
+
+    body {
+        templatePath = 'resource://Shel.SeoView/Private/Templates/SeoView.html'
+        sectionName = 'body'
+
+        parts = TYPO3.TypoScript:Array {
+            metaKeywords = Shel.SeoView:MetaKeywords
+
+            analyzedKeywords = Shel.SeoView:ExtractedKeywords
+        }
+    }
+}

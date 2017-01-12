@@ -1,0 +1,18 @@
+TYPO3:
+  Neos:
+    userInterface:
+      editPreviewModes:
+        seoView:
+          isEditingMode: true
+          isPreviewMode: false
+          typoScriptRenderingPath: seoView
+          title: 'Shel.SeoView:Main:editPreviewModes.seoView'
+          position: 'after inPlace'
+
+      translation:
+        autoInclude:
+          'Shel.SeoView': ['Main', 'NodeTypes/*']
+
+    typoScript:
+      autoInclude:
+        'Shel.SeoView': true

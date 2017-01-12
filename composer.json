@@ -1,0 +1,21 @@
+{
+    "description": "Backend views for helping editors do SEO",
+    "type": "neos-plugin",
+    "license": "MIT",
+    "require": {
+        "neos/neos": "~3.0",
+        "neos/seo": "*",
+        "davechild/textstatistics": "1.*"
+    },
+    "name": "shel/seoview",
+    "autoload": {
+        "psr-4": {
+            "Shel\\SeoView\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Shel.SeoView"
+        }
+    }
+}

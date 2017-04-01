@@ -17,7 +17,6 @@ prototype(Shel.SeoView:OpenGraphData) < prototype(Neos.Fusion:Tag) {
                         key = Neos.Fusion:Tag {
                             tagName = 'td'
                             content = ${I18n.translate('Shel.SeoView:Main:sections.openGraphTitle.title')}
-                            attributes.width = '300px'
                         }
 
                         value = Neos.Fusion:Tag {

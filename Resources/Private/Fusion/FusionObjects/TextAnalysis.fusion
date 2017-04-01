@@ -24,7 +24,6 @@ prototype(Shel.SeoView:ContentStatistics) < prototype(Neos.Fusion:Tag) {
                     content = Neos.Fusion:Array {
                         key = Neos.Fusion:Tag {
                             tagName = 'td'
-                            attributes.width = '300px'
                             content = ${I18n.translate('Shel.SeoView:Main:sections.contentStatistics.characterCount')}
                         }
                         value = Neos.Fusion:Tag {
@@ -44,6 +43,7 @@ prototype(Shel.SeoView:ContentStatistics) < prototype(Neos.Fusion:Tag) {
                         value = Neos.Fusion:Tag {
                             tagName = 'td'
                             content = ${Readability.wordCount(pageText)}
+                            content.@process.showGood = ${value >= 200 ? '<span class="occurence-good">' + value + '</span>' : value}
                         }
                     }
                 }
@@ -86,6 +86,8 @@ prototype(Shel.SeoView:ContentStatistics) < prototype(Neos.Fusion:Tag) {
                         value = Neos.Fusion:Tag {
                             tagName = 'td'
                             content = ${Math.round((Readability.wordCount(pageText) / 220))}
+                            content.@process.showLow = ${value > 5 || value <= 1 ? '<span class="occurence-low">' + value + '</span>' : value}
+                            content.@process.showGood = ${value <= 5 && value > 1 ? '<span class="occurence-good">' + value + '</span>' : value}
                         }
                     }
                 }

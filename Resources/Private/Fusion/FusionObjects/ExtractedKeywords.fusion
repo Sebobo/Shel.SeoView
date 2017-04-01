@@ -22,7 +22,6 @@ prototype(Shel.SeoView:ExtractedKeywords) < prototype(Neos.Fusion:Tag) {
                         keyword = Neos.Fusion:Tag {
                             tagName = 'td'
                             content = ${keyword}
-                            attributes.width = '300px'
                         }
 
                         occurence = Neos.Fusion:Tag {

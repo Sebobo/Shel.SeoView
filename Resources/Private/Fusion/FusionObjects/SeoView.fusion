@@ -2,13 +2,24 @@ prototype(Shel.SeoView:SeoView) < prototype(Neos.Neos:Page) {
     head {
         stylesheets >
         stylesheets = Neos.Fusion:Array {
-            seoView = Neos.Fusion:Tag {
+            base = Neos.Fusion:Tag {
                 tagName = 'link'
                 attributes {
                     rel = 'stylesheet'
                     type = 'text/css'
                     href = Neos.Fusion:ResourceUri {
                         path = 'resource://Neos.Neos/Public/Styles/RawContentMode.css'
+                    }
+                }
+            }
+
+            seoView = Neos.Fusion:Tag {
+                tagName = 'link'
+                attributes {
+                    rel = 'stylesheet'
+                    type = 'text/css'
+                    href = Neos.Fusion:ResourceUri {
+                        path = 'resource://Shel.SeoView/Public/Styles/main.css'
                     }
                 }
             }
@@ -22,9 +33,11 @@ prototype(Shel.SeoView:SeoView) < prototype(Neos.Neos:Page) {
         sectionName = 'body'
 
         parts = Neos.Fusion:Array {
-            metaKeywords = Shel.SeoView:MetaKeywords
+            metaDescription = Shel.SeoView:MetaDescription
 
-#            analyzedKeywords = Shel.SeoView:ExtractedKeywords
+            extractedKeywords = Shel.SeoView:ExtractedKeywords
+
+            openGraphData = Shel.SeoView:OpenGraphData
 
             textAnalysis = Shel.SeoView:ContentStatistics
         }

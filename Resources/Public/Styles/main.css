@@ -1,0 +1,15 @@
+.occurence-low {
+    color: red;
+}
+
+.occurence-average {
+    color: darkgoldenrod;
+}
+
+.occurence-good {
+    color: green;
+}
+
+#neos-seo-view-container section {
+    margin: 2rem 0;
+}

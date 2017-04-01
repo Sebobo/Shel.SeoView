@@ -1,0 +1,65 @@
+prototype(Shel.SeoView:OpenGraphData) < prototype(Neos.Fusion:Tag) {
+    tagName = 'section'
+    attributes.class = 'seo-view__opengraph-data'
+    
+    content = Neos.Fusion:Array {
+        header = Neos.Fusion:Tag {
+            tagName = 'h4'
+            content = ${I18n.translate('Shel.SeoView:Main:sections.openGraphData.title')}
+        }
+
+        data = Neos.Fusion:Tag {
+            tagName = 'table'
+            content = Neos.Fusion:Array {
+                title = Neos.Fusion:Tag {
+                    tagName = 'tr'
+                    content = Neos.Fusion:Array {
+                        key = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${I18n.translate('Shel.SeoView:Main:sections.openGraphTitle.title')}
+                            attributes.width = '300px'
+                        }
+
+                        value = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${q(node).property('openGraphTitle')}
+                            content.@process.fallback = ${String.isBlank(value) ? I18n.translate('Shel.SeoView:Main:sections.openGraphType.noTypeSet') : value}
+                        }
+                    }
+                }
+
+                description = Neos.Fusion:Tag {
+                    tagName = 'tr'
+                    content = Neos.Fusion:Array {
+                        key = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${I18n.translate('Shel.SeoView:Main:sections.openGraphDescription.title')}
+                        }
+
+                        value = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${q(node).property('openGraphDescription')}
+                            content.@process.fallback = ${String.isBlank(value) ? I18n.translate('Shel.SeoView:Main:sections.openGraphDescription.noDescriptionSet') : value}
+                        }
+                    }
+                }
+
+                type = Neos.Fusion:Tag {
+                    tagName = 'tr'
+                    content = Neos.Fusion:Array {
+                        key = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${I18n.translate('Shel.SeoView:Main:sections.openGraphType.title')}
+                        }
+
+                        value = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${q(node).property('openGraphType')}
+                            content.@process.fallback = ${String.isBlank(value) ? I18n.translate('Shel.SeoView:Main:sections.openGraphType.noTypeSet') : value}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+prototype(Shel.SeoView:MetaDescription) < prototype(Neos.Fusion:Tag) {
+    tagName = 'section'
+    attributes.class = 'seo-view__meta-description'
+    
+    content = Neos.Fusion:Array {
+        header = Neos.Fusion:Tag {
+            tagName = 'h4'
+            content = ${I18n.translate('Shel.SeoView:Main:sections.metaDescription.title')}
+        }
+
+        content = Neos.Fusion:Tag {
+            tagName = 'p'
+            content = ${q(node).property('metaDescription')}
+            content.@process.fallback = ${String.isBlank(value) ? I18n.translate('Shel.SeoView:Main:sections.metaDescription.noDescriptionSet') : value}
+        }
+    }
+}

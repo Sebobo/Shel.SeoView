@@ -2,28 +2,49 @@ prototype(Shel.SeoView:ExtractedKeywords) < prototype(Neos.Fusion:Tag) {
     tagName = 'section'
     attributes.class = 'seo-view__analyzed-keywords'
 
+    @context.textNodes = ${q(documentNode).children('[instanceof Neos.Neos:ContentCollection]').find('[instanceof Neos.NodeTypes:TitleMixin],[instanceof Neos.NodeTypes:TextMixin]')}
+
     content = Neos.Fusion:Array {
         title = Neos.Fusion:Tag {
-            tagName = 'h2'
-            content = ${Translation.translateById('sections.extractedKeywords.title', 'Shel.SeoView', 'Main')}
+            tagName = 'h4'
+            content = ${I18n.translate('Shel.SeoView:Main:sections.extractedKeywords.title')}
         }
 
         keywords = Neos.Fusion:Tag {
             tagName = 'table'
             content = Neos.Fusion:Collection {
-                aggregationDefinition = Neos.Fusion:RawArray {
-                    terms = Neos.Fusion:RawArray {
-                        field = '__fulltext.text'
-                        size = 100
-                    }
-                }
-
-                collection = ${Search.query(documentNode).nodeType('Neos.Neos:Document').limit(0).aggregation("keywords", this.aggregationDefinition).execute().getAggregations().keywords.buckets}
+                collection = ${String.pregSplit(q(node).property('metaKeywords'), "/[\s,]+/")}
+                itemName = 'keyword'
                 itemRenderer = Neos.Fusion:Tag {
                     tagName = 'tr'
-                    content = ${'<td>' + item.key + '</td><td>' + item.doc_count + '</td>'}
+                    @context.keywordForSearch = ${String.toLowerCase(keyword)}
+                    content = Neos.Fusion:Array {
+                        keyword = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${keyword}
+                            attributes.width = '300px'
+                        }
+
+                        occurence = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            titleContent = Neos.Fusion:Collection {
+                                collection = ${textNodes.filter('[title*=' + keywordForSearch + ']').get()}
+                                itemRenderer = ${String.toLowerCase(q(item).property('title'))}
+                            }
+                            textContent = Neos.Fusion:Collection {
+                                collection = ${textNodes.filter('[text*=' + keywordForSearch + ']').get()}
+                                itemRenderer = ${String.toLowerCase(q(item).property('text'))}
+                            }
+                            content = ${Readability.countOccurences(this.titleContent + ' ' + this.textContent, keywordForSearch)}
+                            content.@process.showLow = ${value == 0 ? '<span class="occurence-low">' + value + '</span>' : value}
+                            content.@process.showAverage = ${value > 0 && value < 6 ? '<span class="occurence-average">' + value + '</span>' : value}
+                            content.@process.showGood = ${value >= 6 ? '<span class="occurence-good">' + value + '</span>' : value}
+                        }
+                    }
+                    @if.keywordSet = ${!String.isBlank(keyword)}
                 }
             }
+            @process.fallback = ${String.isBlank(this.content) ? '<p>' + I18n.translate('Shel.SeoView:Main:sections.extractedKeywords.noKeywordsSet') + '</p>' : value}
         }
     }
 }

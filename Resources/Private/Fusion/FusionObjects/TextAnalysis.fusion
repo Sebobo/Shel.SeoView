@@ -12,7 +12,7 @@ prototype(Shel.SeoView:ContentStatistics) < prototype(Neos.Fusion:Tag) {
 
     content = Neos.Fusion:Array {
         title = Neos.Fusion:Tag {
-            tagName = 'h2'
+            tagName = 'h4'
             content = ${I18n.translate('Shel.SeoView:Main:sections.contentStatistics.title')}
         }
 
@@ -24,6 +24,7 @@ prototype(Shel.SeoView:ContentStatistics) < prototype(Neos.Fusion:Tag) {
                     content = Neos.Fusion:Array {
                         key = Neos.Fusion:Tag {
                             tagName = 'td'
+                            attributes.width = '300px'
                             content = ${I18n.translate('Shel.SeoView:Main:sections.contentStatistics.characterCount')}
                         }
                         value = Neos.Fusion:Tag {
@@ -71,6 +72,20 @@ prototype(Shel.SeoView:ContentStatistics) < prototype(Neos.Fusion:Tag) {
                         value = Neos.Fusion:Tag {
                             tagName = 'td'
                             content = ${Math.round(Readability.averageWordsPerSentence(pageText), 2)}
+                        }
+                    }
+                }
+
+                readingDuration = Neos.Fusion:Tag {
+                    tagName = 'tr'
+                    content = Neos.Fusion:Array {
+                        key = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${I18n.translate('Shel.SeoView:Main:sections.contentStatistics.readingDuration')}
+                        }
+                        value = Neos.Fusion:Tag {
+                            tagName = 'td'
+                            content = ${Math.round((Readability.wordCount(pageText) / 220))}
                         }
                     }
                 }

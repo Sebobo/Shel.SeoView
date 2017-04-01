@@ -6,8 +6,43 @@
                 <source>SEO View</source>
             </trans-unit>
 
+            <trans-unit id="sections.metaDescription.title">
+                <source>Meta description</source>
+            </trans-unit>
+            <trans-unit id="sections.metaDescription.noDescriptionSet">
+                <source>No description set</source>
+            </trans-unit>
+
             <trans-unit id="sections.extractedKeywords.title">
-                <source>Extracted Keywords</source>
+                <source>Metakeywords and occurence</source>
+            </trans-unit>
+            <trans-unit id="sections.extractedKeywords.noKeywordsSet">
+                <source>No keywords set</source>
+            </trans-unit>
+
+            <trans-unit id="sections.openGraphData.title">
+                <source>Open Graph data</source>
+            </trans-unit>
+
+            <trans-unit id="sections.openGraphType.title">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="sections.openGraphType.noTypeSet">
+                <source>No type set</source>
+            </trans-unit>
+
+            <trans-unit id="sections.openGraphTitle.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="sections.openGraphTitle.noTitleSet">
+                <source>No title set</source>
+            </trans-unit>
+
+            <trans-unit id="sections.openGraphDescription.title">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="sections.openGraphDescription.noDescriptionSet">
+                <source>No description set</source>
             </trans-unit>
 
             <trans-unit id="sections.contentStatistics.title">
@@ -24,6 +59,9 @@
             </trans-unit>
             <trans-unit id="sections.contentStatistics.averageWordsPerSentence">
                 <source>Average words per sentence</source>
+            </trans-unit>
+            <trans-unit id="sections.contentStatistics.readingDuration">
+                <source>Reading duration (in minutes)</source>
             </trans-unit>
         </body>
     </file>

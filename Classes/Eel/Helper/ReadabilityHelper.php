@@ -64,6 +64,18 @@ class ReadabilityHelper implements ProtectedContextAwareInterface
     }
 
     /**
+     * Get number of occurences of a word in a text
+     *
+     * @param string $haystack
+     * @param string $needle
+     * @return int Length of the text
+     */
+    public function countOccurences($haystack, $needle)
+    {
+        return substr_count($haystack, $needle);
+    }
+
+    /**
      * All methods are considered safe
      *
      * @param string $methodName
